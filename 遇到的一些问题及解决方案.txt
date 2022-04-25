@@ -1,0 +1,22 @@
+﻿1. 在引入模块（require）时，如果require的模块在当前目录下，则使用相对路径时最好以'./’开头，否则可能报错。例如：
+var redis = require('./util/redisDB');
+
+2. 在JSON序列化时，如果被转换的JSON对象已经为字符串，那输出的结果中将会含有转义字符。例如：
+let dogs = {
+    legs: 4,
+    color: 'red'
+}
+
+JSON.stringify(dogs) // 输出 '{"legs":4,"color":"red"}'
+JSON.stringify(JSON.stringify(dogs)) // 输出 '"{\\"legs\\":4,\\"color\\":\\"red\\"}"'
+
+3.获取有序集合内容时，如果分数相等，则按照字典序排序
+
+4.在url地址中传递参数时（get请求），例如/getArticle/:id，如果获取req.param.id变量，则返回值中含有前置冒号（即:id）
+注：如果请求传递参数中不含冒号，则忽略此条
+
+5.scan命令的遍历顺序：高位加1 例如0 -> 16 -> 8 -> 24 -> 4 -> 20 -> ...
+转换为二进制就是：00000 -> 10000 -> 01000 -> 11000 -> 00100 -> 01100 -> ... 
+
+6. redisDB中的scan，为什么可以一次性获取全部键？
+因为count值被设置为100？

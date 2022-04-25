@@ -1,0 +1,29 @@
+﻿数据库内容：
+
+1.通用部分
+book:nav_menu 页面导航栏数据
+book:footer footer显示内容
+book:links 友情链接
+book:indexPic 首页轮播图片
+book:article: 文章总数（即目前的最大id）
+book:article:(a_id) 按id存储的文章内容
+book:article:(a_id):talk 按id存储的文章评论
+book:a_type 文章类型枚举
+book:a_type:(uid) 按类型存储的文章key
+book:a_tag:(tKeyMd5) 按MD5加密后的标签存储的文章内容key
+book:a_view 按阅读量排序的文章内容key（有序集合）
+book:a_time 按发布时间排序的文章内容key（有序集合）
+book:a_like 按文章点赞量排序的的文章内容key（有序集合）
+
+2.用户权限与后台管理部分
+book:user:info:(username) 用户基本信息
+book:user:info:(token) 暂存用户token
+book:user:power:(token) 存储管理员用户token
+book:mail: 对话内容的总数（即目前的最大id）
+book:mail:(mail_id) 私信对话内容列表
+book:user:(username):mail 按用户名存储的对话内容的id与关联用户
+book:user:(username):collection 按用户名存储的文章收藏列表
+
+路由配置：
+
+在 router 文件夹下即可查看
